@@ -1,4 +1,4 @@
 functions:
-  - name: function-aws-rekognition
+  - name: aws-rekognition
     runtime: nodejs14
     handler: aws-rekogition.handler
