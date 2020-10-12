@@ -15,7 +15,7 @@ parameters:
       description: "The region used to perform the AWS Rekognition API call."
       type: "STRING"
       default: "eu-west-1"
-    - name: REKOGNITION_FILE_REFIX
+    - name: REKOGNITION_FILE_PREFIX
       description: "The file prefix used to store the AWS Rekognition response."
       type: "STRING"
       default: "aws-rekognition"
@@ -32,8 +32,8 @@ template: |
         {{ if .AWS_REGION }}
         AWS_REGION: {{ .AWS_REGION}}
         {{ end }}
-        {{ if .REKOGNITION_FILE_REFIX }}
-        REKOGNITION_FILE_REFIX: {{ .REKOGNITION_FILE_REFIX }}
+        {{ if .REKOGNITION_FILE_PREFIX }}
+        REKOGNITION_FILE_PREFIX: {{ .REKOGNITION_FILE_PREFIX }}
         {{ end }}
         {{ if .REKOGNITION_FUNCTION }}
         REKOGNITION_FUNCTION: {{ .REKOGNITION_FUNCTION }}
@@ -47,5 +47,5 @@ template: |
             event.source == "koyeb.com/gateway" &&
             event.subject == "{{ .STORE }}" &&
             event.type.matches("s3:ObjectCreated:.*") &&
-            !data.object.key.startsWith("{{ .REKOGNITION_FILE_REFIX }}") &&
+            !data.object.key.startsWith("{{ .REKOGNITION_FILE_PREFIX }}") &&
             data.object.key.matches("([^\\s]+(\\.(?i)(jpe?g|png))$)")
