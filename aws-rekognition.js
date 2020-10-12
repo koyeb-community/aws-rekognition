@@ -27,7 +27,7 @@ const rekognitionFunctions = {
   },
 };
 
-const prefix = process.env.REKOGNITION_FILE_REFIX || "aws-rekognition";
+const prefix = process.env.REKOGNITION_FILE_PREFIX || "aws-rekognition";
 
 const executeRekognition = async (
   rekognitionInstance,
