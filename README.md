@@ -3,7 +3,6 @@ display_name: AWS Rekognition
 icon: "https://assets.koyeb.com/icons/aws.svg"
 short_description: The AWS Rekognition function allows you to analyze your images within a few minutes.
 status: ACTIVE
-version: 1.0.0
 ---
 
 ## Summary
